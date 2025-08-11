@@ -10,7 +10,7 @@ import { baseURI } from '../baseURI';
 import { onLoggedIn } from '../loggedIn';
 import { CachedStoresManager } from './CachedStoresManager';
 import type { IDocumentMapStore } from './DocumentMapStore';
-import { watch } from './watch';
+import { watch } from '../../meteor/facade/watch';
 import { sdk } from '../../../app/utils/client/lib/SDKClient';
 import { isTruthy } from '../../../lib/isTruthy';
 import { withDebouncing } from '../../../lib/utils/highOrderFunctions';
