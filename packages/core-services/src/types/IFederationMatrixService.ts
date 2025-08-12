@@ -1,4 +1,6 @@
-import type { IMessage, IRoom, IUser } from '@rocket.chat/core-typings';
+import type { IncomingMessage, ServerResponse } from 'http';
+
+import type { IMessage, IRoom, IUser, IUpload } from '@rocket.chat/core-typings';
 import type { Router } from '@rocket.chat/http-router';
 
 export interface IRouteContext {
@@ -23,4 +25,5 @@ export interface IFederationMatrixService {
 	getEventById(eventId: string): Promise<any | null>;
 	leaveRoom(roomId: string, user: IUser): Promise<void>;
 	kickUser(roomId: string, removedUser: IUser, userWhoRemoved: IUser): Promise<void>;
+	downloadRemoteFile(file: IUpload, req: IncomingMessage, res: ServerResponse): Promise<void>;
 }
