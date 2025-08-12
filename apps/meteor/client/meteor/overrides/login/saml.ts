@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { settings } from '../../../../app/settings/client';
 import { type LoginCallback, callLoginMethod, handleLogin } from '../../../lib/2fa/overrideLoginMethod';
+import { accounts } from '../../facade/accounts';
 
 declare module 'meteor/meteor' {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
@@ -72,7 +73,7 @@ Meteor.logout = async function (...args) {
 
 				// Remove the userId from the client to prevent calls to the server while the logout is processed.
 				// If the logout fails, the userId will be reloaded on the resume call
-				Accounts.storageLocation.removeItem(Accounts.USER_ID_KEY);
+				accounts.deleteStoredUserId();
 
 				// A nasty bounce: 'result' has the SAML LogoutRequest but we need a proper 302 to redirected from the server.
 				window.location.replace(Meteor.absoluteUrl(`_saml/sloRedirect/${provider}/?redirect=${encodeURIComponent(result)}`));

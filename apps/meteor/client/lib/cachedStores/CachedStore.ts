@@ -13,6 +13,7 @@ import type { IDocumentMapStore } from './DocumentMapStore';
 import { sdk } from '../../../app/utils/client/lib/SDKClient';
 import { isTruthy } from '../../../lib/isTruthy';
 import { withDebouncing } from '../../../lib/utils/highOrderFunctions';
+import { accounts } from '../../meteor/facade/accounts';
 import { watch } from '../../meteor/facade/watch';
 import { getConfig } from '../utils/getConfig';
 
@@ -74,7 +75,7 @@ export abstract class CachedStore<T extends IRocketChatRecord, U = T> implements
 
 	protected get eventName(): `${Name}-changed` | `${string}/${Name}-changed` {
 		if (this.eventType === 'notify-user') {
-			return `${Meteor.userId()}/${this.name}-changed`;
+			return `${accounts.getUserId()}/${this.name}-changed`;
 		}
 		return `${this.name}-changed`;
 	}
@@ -395,7 +396,7 @@ export class PrivateCachedStore<T extends IRocketChatRecord, U = T> extends Cach
 			void this.init();
 		});
 
-		Accounts.onLogout(() => {
+		accounts.onLogout(() => {
 			this.release();
 		});
 	}
