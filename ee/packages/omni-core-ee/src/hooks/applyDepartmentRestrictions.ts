@@ -1,3 +1,4 @@
+import { Authorization } from '@rocket.chat/core-services';
 import type { ILivechatDepartment } from '@rocket.chat/core-typings';
 import { applyDepartmentRestrictions } from '@rocket.chat/omni-core';
 import type { FilterOperators } from 'mongodb';
