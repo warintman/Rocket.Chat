@@ -43,7 +43,6 @@ runs:
           .turbo/cache
           node_modules
           apps/meteor/node_modules
-          apps/meteor/ee/server/services/node_modules
           packages/apps-engine/node_modules
           packages/apps-engine/.deno-cache
         key: node-modules-${{ hashFiles('yarn.lock') }}-deno-v${{ inputs.deno-version }}-${{ hashFiles('packages/apps-engine/deno-runtime/deno.lock') }}

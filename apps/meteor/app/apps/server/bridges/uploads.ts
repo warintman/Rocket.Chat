@@ -3,7 +3,6 @@ import type { IUpload } from '@rocket.chat/apps-engine/definition/uploads';
 import type { IUploadDetails } from '@rocket.chat/apps-engine/definition/uploads/IUploadDetails';
 import { UploadBridge } from '@rocket.chat/apps-engine/server/bridges/UploadBridge';
 
-import { determineFileType } from '../../../../ee/lib/misc/determineFileType';
 import { FileUpload } from '../../../file-upload/server';
 import { sendFileMessage } from '../../../file-upload/server/methods/sendFileMessage';
 import { sendFileLivechatMessage } from '../../../livechat/server/methods/sendFileLivechatMessage';
@@ -51,7 +50,7 @@ export class AppUploadBridge extends UploadBridge {
 
 		const fileStore = FileUpload.getStore('Uploads');
 
-		details.type = determineFileType(buffer, details.name);
+		details.type = 'application/octet-stream';
 
 		const uploadedFile = await fileStore.insert(getUploadDetails(details), buffer);
 		this.orch.debugLog(`The App ${appId} has created an upload`, uploadedFile);

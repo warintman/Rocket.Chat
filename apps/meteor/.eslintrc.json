@@ -129,7 +129,7 @@
 			}
 		},
 		{
-			"files": ["client/**/*.ts", "client/**/*.tsx", "ee/client/**/*.ts", "ee/client/**/*.tsx"],
+			"files": ["client/**/*.ts", "client/**/*.tsx"],
 			"rules": {
 				"@typescript-eslint/no-misused-promises": "off",
 				"@typescript-eslint/no-floating-promises": "off"

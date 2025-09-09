@@ -5,7 +5,6 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { UiKitTriggerTimeoutError } from '../../../app/ui-message/client/UiKitTriggerTimeoutError';
-import { Utilities } from '../../../ee/lib/misc/Utilities';
 import { useUiKitActionManager } from '../../uikit/hooks/useUiKitActionManager';
 import { useRoom } from '../../views/room/contexts/RoomContext';
 import type { RoomToolboxActionConfig } from '../../views/room/contexts/RoomToolboxContext';
@@ -46,8 +45,8 @@ export const useAppsRoomStarActions = () => {
 					items={filteredActions.map((action) => ({
 						id: action.actionId,
 						icon: undefined,
-						title: Utilities.getI18nKeyForApp(action.labelI18n, action.appId),
-						content: <Box is='span'>{t(`${Utilities.getI18nKeyForApp(action.labelI18n, action.appId)}`)}</Box>,
+						title: '',
+						content: <Box is='span'></Box>,
 						variant: action.variant,
 						groups: ['group', 'channel', 'live', 'team', 'direct', 'direct_multiple'],
 						onClick: () => {

@@ -1,9 +1,9 @@
+import type { TranslationKey } from '@rocket.chat/ui-contexts';
 import { useToastMessageDispatch } from '@rocket.chat/ui-contexts';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { UiKitTriggerTimeoutError } from '../../../../../app/ui-message/client/UiKitTriggerTimeoutError';
-import { Utilities } from '../../../../../ee/lib/misc/Utilities';
 import { useAppActionButtons } from '../../../../hooks/useAppActionButtons';
 import { useApplyButtonFilters } from '../../../../hooks/useApplyButtonFilters';
 import { useUiKitActionManager } from '../../../../uikit/hooks/useUiKitActionManager';
@@ -26,7 +26,7 @@ export const useAppsRoomActions = () => {
 					icon: undefined,
 					variant: action.variant,
 					order: 300,
-					title: Utilities.getI18nKeyForApp(action.labelI18n, action.appId),
+					title: 'Title' as TranslationKey,
 					groups: ['group', 'channel', 'live', 'team', 'direct', 'direct_multiple'],
 					// Filters were applied in the applyButtonFilters function
 					// if the code made it this far, the button should be shown

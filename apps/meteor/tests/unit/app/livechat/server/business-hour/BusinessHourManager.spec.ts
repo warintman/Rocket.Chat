@@ -27,7 +27,6 @@ const loggerStub = sinon.stub();
 const { BusinessHourManager } = proxyquire.noCallThru().load('../../../../../../app/livechat/server/business-hour/BusinessHourManager', {
 	'../../../settings/server': {},
 	'../../../../lib/callbacks': {},
-	'../../../../ee/app/livechat-enterprise/server/business-hour/Helper': {},
 	'./AbstractBusinessHour': {},
 	'moment-timezone': momentStub,
 	'@rocket.chat/models': {

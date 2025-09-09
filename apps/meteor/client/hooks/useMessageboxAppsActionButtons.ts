@@ -1,4 +1,5 @@
 import { useToastMessageDispatch } from '@rocket.chat/ui-contexts';
+import type { TranslationKey } from '@rocket.chat/ui-contexts';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -6,7 +7,6 @@ import { useAppActionButtons, getIdForActionButton } from './useAppActionButtons
 import { useApplyButtonFilters } from './useApplyButtonFilters';
 import { UiKitTriggerTimeoutError } from '../../app/ui-message/client/UiKitTriggerTimeoutError';
 import type { MessageBoxAction } from '../../app/ui-utils/client/lib/messageBox';
-import { Utilities } from '../../ee/lib/misc/Utilities';
 import { useUiKitActionManager } from '../uikit/hooks/useUiKitActionManager';
 
 export const useMessageboxAppsActionButtons = () => {
@@ -26,7 +26,7 @@ export const useMessageboxAppsActionButtons = () => {
 				.map((action) => {
 					const item: Omit<MessageBoxAction, 'icon'> = {
 						id: getIdForActionButton(action),
-						label: Utilities.getI18nKeyForApp(action.labelI18n, action.appId),
+						label: 'Icon' as TranslationKey,
 						action: (params) => {
 							void actionManager
 								.emitInteraction(action.appId, {

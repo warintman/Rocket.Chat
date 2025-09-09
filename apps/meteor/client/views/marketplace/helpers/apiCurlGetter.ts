@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { IApiEndpointMetadata } from '@rocket.chat/apps-engine/definition/api';
 
-import { Utilities } from '../../../../ee/lib/misc/Utilities';
-
+export const apiCurlGetter =
+	(absoluteUrl: (path: string) => string) =>
+	(method: string, api: IApiEndpointMetadata): string[] => {
+		return ''.split('\n');
+	};
+/*
 export const apiCurlGetter =
 	(absoluteUrl: (path: string) => string) =>
 	(method: string, api: IApiEndpointMetadata): string[] => {
@@ -16,3 +22,4 @@ export const apiCurlGetter =
 			auth: '',
 		}).split('\n');
 	};
+*/

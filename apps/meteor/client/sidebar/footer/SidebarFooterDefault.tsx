@@ -1,15 +1,15 @@
 import { css } from '@rocket.chat/css-in-js';
 import { Box, SidebarDivider, Palette, SidebarFooter as Footer } from '@rocket.chat/fuselage';
 import { useSetting } from '@rocket.chat/ui-contexts';
-import { useThemeMode } from '@rocket.chat/ui-theming';
+// import { useThemeMode } from '@rocket.chat/ui-theming';
 import DOMPurify from 'dompurify';
 import type { ReactElement } from 'react';
 
 import { SidebarFooterWatermark } from './SidebarFooterWatermark';
 
 const SidebarFooterDefault = (): ReactElement => {
-	const [, , theme] = useThemeMode();
-	const logo = useSetting(theme === 'dark' ? 'Layout_Sidenav_Footer_Dark' : 'Layout_Sidenav_Footer', '').trim();
+	// const [, , theme] = useThemeMode();
+	const logo = useSetting('Layout_Sidenav_Footer', '').trim();
 
 	const sidebarFooterStyle = css`
 		& img {

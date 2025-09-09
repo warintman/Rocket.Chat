@@ -28,10 +28,7 @@
 	},
 	"workspaces": [
 		"apps/*",
-		"packages/*",
-		"ee/apps/*",
-		"ee/packages/*",
-		"apps/meteor/ee/server/services"
+		"packages/*"
 	],
 	"repository": {
 		"type": "git",

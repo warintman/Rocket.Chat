@@ -5,7 +5,6 @@ import { CommandBridge } from '@rocket.chat/apps-engine/server/bridges/CommandBr
 import type { IMessage, RequiredField, SlashCommand, SlashCommandCallbackParams } from '@rocket.chat/core-typings';
 import { Meteor } from 'meteor/meteor';
 
-import { Utilities } from '../../../../ee/lib/misc/Utilities';
 import { parseParameters } from '../../../../lib/utils/parseParameters';
 import { slashCommands } from '../../../utils/server/slashCommand';
 
@@ -106,8 +105,6 @@ export class AppCommandsBridge extends CommandBridge {
 		const item = {
 			appId,
 			command: command.command.toLowerCase(),
-			params: Utilities.getI18nKeyForApp(command.i18nParamsExample, appId),
-			description: Utilities.getI18nKeyForApp(command.i18nDescription, appId),
 			permission: command.permission,
 			callback: this._appCommandExecutor.bind(this),
 			providesPreview: command.providesPreview,

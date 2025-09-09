@@ -1,4 +1,4 @@
-import { DuplicatedLicenseError } from '@rocket.chat/license';
+// import { DuplicatedLicenseError } from '@rocket.chat/license';
 import { Settings } from '@rocket.chat/models';
 
 import { callbacks } from '../../../../../lib/callbacks';
@@ -54,8 +54,6 @@ export async function syncCloudData() {
 		 * The DuplicatedLicenseError license error is also ignored because it is not a problem. the Cloud is allowed to send the same license twice.
 		 */
 		switch (true) {
-			case err instanceof DuplicatedLicenseError:
-				return;
 			case err instanceof CloudWorkspaceAccessError:
 			case err instanceof CloudWorkspaceRegistrationError:
 			case err instanceof CloudWorkspaceAccessTokenEmptyError:

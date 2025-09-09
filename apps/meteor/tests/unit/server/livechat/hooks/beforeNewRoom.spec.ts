@@ -5,7 +5,7 @@ import sinon from 'sinon';
 
 const findStub = sinon.stub();
 
-const { beforeNewRoomPatched } = proxyquire.noCallThru().load('../../../../../ee/app/livechat-enterprise/server/hooks/beforeNewRoom.ts', {
+const { beforeNewRoomPatched } = proxyquire.noCallThru().load('', {
 	'meteor/meteor': {
 		Meteor: {
 			Error,

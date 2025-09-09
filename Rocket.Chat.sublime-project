@@ -6,9 +6,7 @@
 			"path": ".",
 			"folder_exclude_patterns": [
 				"//apps/meteor",
-				"//packages",
-				"//ee/apps",
-				"//ee/packages"
+				"//packages"
 			],
 		},
 		{
@@ -18,14 +16,6 @@
 		{
 			"name": "Packages",
 			"path": "./packages",
-		},
-		{
-			"name": "Enterprise Apps",
-			"path": "./ee/apps",
-		},
-		{
-			"name": "Enterprise Packages",
-			"path": "./ee/packages",
 		}
 	],
 	"settings": {

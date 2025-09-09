@@ -1,5 +1,5 @@
 import { Box, PaletteStyleTag, States, StatesAction, StatesActions, StatesIcon, StatesSubtitle, StatesTitle } from '@rocket.chat/fuselage';
-import { useThemeMode } from '@rocket.chat/ui-theming';
+// import { useThemeMode } from '@rocket.chat/ui-theming';
 import type { ErrorInfo, ReactElement } from 'react';
 
 type AppErrorPageProps = {
@@ -9,11 +9,11 @@ type AppErrorPageProps = {
 };
 
 const AppErrorPage = (_props: AppErrorPageProps): ReactElement => {
-	const [, , theme] = useThemeMode();
+	// const [, , theme] = useThemeMode();
 
 	return (
 		<>
-			<PaletteStyleTag theme={theme} tagId='app-error-palette' />
+			<PaletteStyleTag tagId='app-error-palette' />
 			<Box display='flex' justifyContent='center' height='full' backgroundColor='surface'>
 				<States>
 					<StatesIcon name='error-circle' />

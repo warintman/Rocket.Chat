@@ -1,6 +1,6 @@
-import { Federation, FederationEE, Authorization } from '@rocket.chat/core-services';
+import { Federation, Authorization } from '@rocket.chat/core-services';
 import type { ServerMethods } from '@rocket.chat/ddp-client';
-import { License } from '@rocket.chat/license';
+// import { License } from '@rocket.chat/license';
 import { Meteor } from 'meteor/meteor';
 
 declare module '@rocket.chat/ddp-client' {
@@ -30,7 +30,8 @@ Meteor.methods<ServerMethods>({
 
 		const successes: string[] = [];
 
-		const service = License.hasValidLicense() ? FederationEE : Federation;
+		// const service = License.hasValidLicense() ? FederationEE : Federation;
+		const service = Federation;
 
 		const status = await service.configurationStatus();
 

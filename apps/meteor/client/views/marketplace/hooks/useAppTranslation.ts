@@ -1,8 +1,6 @@
 import { useTranslation } from '@rocket.chat/ui-contexts';
 import { useCallback } from 'react';
 
-import { Utilities } from '../../../../ee/lib/misc/Utilities';
-
 type AppTranslationFunction = {
 	(key: string, ...replaces: unknown[]): string;
 	has: (key: string | undefined) => boolean;
@@ -16,7 +14,7 @@ export const useAppTranslation = (appId: string): AppTranslationFunction => {
 			if (!key) {
 				return '';
 			}
-			const appKey = Utilities.getI18nKeyForApp(key, appId);
+			const appKey = '';
 
 			if (t.has(appKey)) {
 				return t(appKey, ...args);
@@ -36,7 +34,7 @@ export const useAppTranslation = (appId: string): AppTranslationFunction => {
 					return false;
 				}
 
-				return t.has(Utilities.getI18nKeyForApp(key, appId)) || t.has(key);
+				return t.has('');
 			},
 			[t, appId],
 		),

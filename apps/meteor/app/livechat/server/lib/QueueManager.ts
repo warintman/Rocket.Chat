@@ -26,7 +26,6 @@ import { checkOnlineForDepartment } from './departmentsLib';
 import { afterInquiryQueued, afterRoomQueued, beforeDelegateAgent, beforeRouteChat, onNewRoom } from './hooks';
 import { checkOnlineAgents, getOnlineAgents } from './service-status';
 import { getInquirySortMechanismSetting } from './settings';
-import { dispatchInquiryPosition } from '../../../../ee/app/livechat-enterprise/server/lib/Helper';
 import { client, shouldRetryTransaction } from '../../../../server/database/utils';
 import { sendNotification } from '../../../lib/server';
 import { notifyOnLivechatInquiryChangedById, notifyOnLivechatInquiryChanged } from '../../../lib/server/lib/notifyListener';
@@ -393,7 +392,7 @@ export class QueueManager {
 			});
 
 			if (inq) {
-				void dispatchInquiryPosition(inq);
+				// void dispatchInquiryPosition(inq);
 			}
 		}
 	}
